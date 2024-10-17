@@ -46,8 +46,6 @@ Apoi, se vor folosi algoritmii necesari pentru a identifica, separa și extrage 
 
 
 
-![c2RfWP8](https://github.com/user-attachments/assets/ed9ea5fc-58a8-4692-ac68-9784ccc73993)
-
 # Proiectarea soluției
 
 ![3veLdQN - Imgur](https://github.com/user-attachments/assets/911afdf6-9308-4568-82e8-06edd8746ae9)
