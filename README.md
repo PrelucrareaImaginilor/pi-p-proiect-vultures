@@ -20,6 +20,7 @@ Pentru a detecta leziunile specifice DR, trebuie analizat în amănunt globul oc
 ➢ Neovascularizare: vase de sânge noi, anormale, care pot fi dificil de segmentat din cauza formei neregulate și a dimensiunilor mici.
 
 ![Imagine 1](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine3.png)
+
 Pentru a detecta leziunile mai eficient, se recomandă ca imaginile să aibă luminozitatea și contrastul crescut, iar cantitatea de roșu din culoare să fie redusă.
 
 Înainte:
@@ -29,6 +30,7 @@ Pentru a detecta leziunile mai eficient, se recomandă ca imaginile să aibă lu
 După:
 
 ![Imagine 3](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine2.png)
+
 Apoi, se vor folosi algoritmii necesari pentru a identifica, separa și extrage defectele cauzate de DR pentru a stabili diagnosticul pacientului.
 
 # Articole / documentații studiate:
