@@ -16,8 +16,7 @@ Pentru a detecta leziunile specifice DR, trebuie analizat în amănunt globul oc
 
 Pentru a detecta leziunile mai eficient, se recomandă ca imaginile să aibă luminozitatea și contrastul crescut, iar cantitatea de roșu din culoare să fie redusă.
 
-Înainte:
-![enter image description here](https://imgur.com/a/n7Utue3)
+![Înainte:]((https://imgur.com/a/n7Utue3))
 
 După:
 ![enter image description here](https://imgur.com/a/iWkyC3k)
