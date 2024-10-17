@@ -8,28 +8,38 @@ Retinopatia diabetică (DR) este o afecțiune a ochiului cauzată de răni la ni
 # Cum o detectăm?
 
 Pentru a detecta leziunile specifice DR, trebuie analizat în amănunt globul ocular pentru a se identifica:
+
 ➢ Microanevrisme: puncte mici și negre care apar de obicei în apropierea vaselor de sânge 
+
 ➢ Hemoragii: se manifestă ca pete mari, roșii și mai difuze în comparație cu microanevrismele 
-➢ Exsudate dure: depuneri galbene, strălucitoare, găsite în principal în zonele centrale ➢ Exsudate moi: sub forma unor pete albe, pufoase, situate de obicei de-a lungul vaselor de sânge 
-➢ Neovascularizare: vase de sânge noi, anormale, care pot fi dificil de segmentat din cauza formei neregulate și a dimensiunilor mici
-![enter image description here](https://imgur.com/a/jKzCYwa)
+
+➢ Exsudate dure: depuneri galbene, strălucitoare, găsite în principal în zonele centrale 
+
+➢ Exsudate moi: sub forma unor pete albe, pufoase, situate de obicei de-a lungul vaselor de sânge 
+
+➢ Neovascularizare: vase de sânge noi, anormale, care pot fi dificil de segmentat din cauza formei neregulate și a dimensiunilor mici.
+
+![Aspose Words d742e223-56c4-4149-a4fe-f237e7aed767 001](https://github.com/user-attachments/assets/82bae987-8a91-457a-82e5-a7ee8b350e58)
 
 Pentru a detecta leziunile mai eficient, se recomandă ca imaginile să aibă luminozitatea și contrastul crescut, iar cantitatea de roșu din culoare să fie redusă.
 
-![Înainte:]((https://imgur.com/a/n7Utue3))
+Înainte:
+
+![Aspose Words d742e223-56c4-4149-a4fe-f237e7aed767 002](https://github.com/user-attachments/assets/2429763d-c379-4b9f-8882-3ab8a0c204ec)
 
 După:
-![enter image description here](https://imgur.com/a/iWkyC3k)
+
+![Aspose Words d742e223-56c4-4149-a4fe-f237e7aed767 003](https://github.com/user-attachments/assets/9c11e156-d09f-49b7-8d0f-eda83e2b5d85)
 
 Apoi, se vor folosi algoritmii necesari pentru a identifica, separa și extrage defectele cauzate de DR pentru a stabili diagnosticul pacientului.
 
 # Articole / documentații studiate:
-![enter image description here](https://imgur.com/a/GNdPlBA)
+
+![c2RfWP8](https://github.com/user-attachments/assets/ed9ea5fc-58a8-4692-ac68-9784ccc73993)
 
 # Proiectarea soluției
 
-![enter image description here](https://imgur.com/a/xXGYCDR)
-
+![3veLdQN - Imgur](https://github.com/user-attachments/assets/911afdf6-9308-4568-82e8-06edd8746ae9)
 
 # Bibliografie 
 
