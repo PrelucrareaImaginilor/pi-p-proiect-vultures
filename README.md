@@ -25,6 +25,7 @@ Pentru a detecta leziunile mai eficient, se recomandă ca imaginile să aibă lu
 Înainte:
 
 ![Imagine 2](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine1.jpg)
+
 După:
 
 ![Imagine 3](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine2.png)
