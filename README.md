@@ -19,17 +19,17 @@ Pentru a detecta leziunile specifice DR, trebuie analizat în amănunt globul oc
 
 ➢ Neovascularizare: vase de sânge noi, anormale, care pot fi dificil de segmentat din cauza formei neregulate și a dimensiunilor mici.
 
-![Aspose Words d742e223-56c4-4149-a4fe-f237e7aed767 001](https://github.com/user-attachments/assets/82bae987-8a91-457a-82e5-a7ee8b350e58)
+![Imagine 1](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine3.png)
 
 Pentru a detecta leziunile mai eficient, se recomandă ca imaginile să aibă luminozitatea și contrastul crescut, iar cantitatea de roșu din culoare să fie redusă.
 
 Înainte:
 
-![Aspose Words d742e223-56c4-4149-a4fe-f237e7aed767 002](https://github.com/user-attachments/assets/2429763d-c379-4b9f-8882-3ab8a0c204ec)
+![Imagine 2](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine1.jpg)
 
 După:
 
-![Aspose Words d742e223-56c4-4149-a4fe-f237e7aed767 003](https://github.com/user-attachments/assets/9c11e156-d09f-49b7-8d0f-eda83e2b5d85)
+![Imagine 3](https://github.com/PrelucrareaImaginilor/pi-p-proiect-vultures/blob/master/diverse/Imagine2.png)
 
 Apoi, se vor folosi algoritmii necesari pentru a identifica, separa și extrage defectele cauzate de DR pentru a stabili diagnosticul pacientului.
 
@@ -38,11 +38,11 @@ Apoi, se vor folosi algoritmii necesari pentru a identifica, separa și extrage 
 
 | Nr | Autor(i) / An                         | Titlul articolului / proiectului                                                                                                                                    | Aplicație / Domeniu           | Tehnologii utilizate                     | Metodologie / Abordare                                                       | Rezultate                                                                                        | Limitări                                                                           | Comentarii suplimentare                                      |
 | -- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| 1  | Qiqi Xiao, Jiaxu Zou, Muqiao Yang     | [Improving Lesion Segmentation For Diabetic Retinopathy Using Adversarial Learning](https://arxiv.org/pdf/2007.13854v1)                                             | Procesare de imagini medicale | HEDNet, U-Net, cGAN                      | Abordare multi-tasking, inclusiv segmentarea leziunilor și diagnosticarea DR | o abordare multi-tasking bazată pe identificarea și detectarea leziunilor DR de pe globul ocular | Dependență de dataset, Complexitatea computațională                                | \-                                                           |
-| 2  | Tingting Zhao, Yawen Guan, Lixia Yuan | [A Novel Attention-Based U-Net For Diabetic Retinopathy Lesion Segmentation](https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1309795/full) | Procesare de imagini medicale | Python, PyTorch, Attention U-Net         | Rețele neuronale convoluționale cu mecanisme de atenție                      | Îmbunătățirea semnificativă a preciziei în zonele cu margini neclare                             | Necesită un set de date mare pentru antrenare, variabilitatea calității imaginilor | \-                                                           |
-| 3  | Tao Chen, Zhouwei Xiong, Shaodong Ma  | [Unsupervised Domain Adaptation For Diabetic Retinopathy Lesion Segmentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC11130363/)                                   | Procesare de imagini medicale | Python, TensorFlow, CycleGAN             | Adaptare de domeniu 100% automatizată                                        | Performanță competitivă pe seturi de date noi                                                    | Depinde de calitatea datelor de sursă, poate fi mai puțin calitativă segmentarea   | Poate fi util pentru a reduce efortul de etichetare.         |
+| 1  | Qiqi Xiao, Jiaxu Zou, Muqiao Yang     | [Improving Lesion Segmentation For Diabetic Retinopathy Using Adversarial Learning](https://arxiv.org/pdf/2007.13854v1)                                             | Procesare de imagini medicale | HEDNet, U-Net, cGAN                      | Abordare multi-tasking, inclusiv segmentarea leziunilor și diagnosticarea DR | o abordare multi-tasking bazată pe identificarea și detectarea leziunilor DR de pe globul ocular | Dependență mare de un dataset, complexitate computațională ridicată                                | \-                                                           |
+| 2  | Tingting Zhao, Yawen Guan, Lixia Yuan | [A Novel Attention-Based U-Net For Diabetic Retinopathy Lesion Segmentation](https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1309795/full) | Procesare de imagini medicale | Python, PyTorch, Attention U-Net         | Rețele neuronale convoluționale cu mecanisme de atenție                      | Îmbunătățirea semnificativă a preciziei în zonele cu margini neclare                             | Necesită un set de date mare pentru antrenare, discrepanță mare la calitatea imaginilor | \-                                                           |
+| 3  | Tao Chen, Zhouwei Xiong, Shaodong Ma  | [Unsupervised Domain Adaptation For Diabetic Retinopathy Lesion Segmentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC11130363/)                                   | Procesare de imagini medicale | Python, TensorFlow, CycleGAN             | Adaptare de domeniu 100% automatizată                                        | Performanță competitivă pe seturi de date noi                                                    | Depinde de calitatea datelor de sursă, segmentarea poate fi mai puțin calitativă  | Poate fi util pentru a reduce efortul de etichetare.         |
 | 4  | Dorota Bielińska-Wąż, Piotr Wąż       | [3D Convolutional Neural Networks For Diabetic Retinopathy Lesion Segmentation](https://www.mdpi.com/2075-4426/12/9/1454)                                           | Procesare de imagini medicale | Python, TensorFlow, 3D CNN               | Rețele neuronale convoluționale 3D                                           | Exploatarea informației 3D pentru o segmentare mai precisă                                       | Necesită imagini 3D de înaltă calitate, timp, resurse și mentenanță costisitoare   | Poate fi extins la alte tipuri de leziuni oculare.           |
-| 5  | Deliang Zhu, Lukuan Jia, Shijie Guo   | [Multi-scale Feature Fusion For Diabetic Retinopathy Lesion Segmentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC9777401/)                                        | Procesare de imagini medicale | Python, PyTorch, Feature Pyramid Network | Fuziunea caracteristicilor multi-scală                                       | Îmbunătățirea detectării leziunilor de diferite dimensiuni                                       | Sensibil la zgomotul din imagini, calitate slabă, Interpretabilitatea rezultatelor | Poate beneficia de o preprocesare mai avansată a imaginilor. |
+| 5  | Deliang Zhu, Lukuan Jia, Shijie Guo   | [Multi-scale Feature Fusion For Diabetic Retinopathy Lesion Segmentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC9777401/)                                        | Procesare de imagini medicale | Python, PyTorch, Feature Pyramid Network | Fuziunea caracteristicilor multi-scală                                       | Îmbunătățirea detectării leziunilor de diferite dimensiuni                                       | Sensibil la zgomotul din imagini, calitate slabă, interpretabilitate vastă a rezultatelor | Poate beneficia de o preprocesare mai avansată a imaginilor. |
 
 
 
@@ -52,9 +52,13 @@ Apoi, se vor folosi algoritmii necesari pentru a identifica, separa și extrage 
 
 # Bibliografie 
 
- ➢ [Improving Lesion Segmentation For Diabetic Retinopathy Using Adversarial Learning](https://arxiv.org/pdf/2007.13854v1)
+➢ [Improving Lesion Segmentation For Diabetic Retinopathy Using Adversarial Learning](https://arxiv.org/pdf/2007.13854v1)
+
 ➢ [A Novel Attention-Based U-Net For Diabetic Retinopathy Lesion Segmentation](https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1309795/full)
+
 ➢ [Unsupervised Domain Adaptation For Diabetic Retinopathy Lesion Segmentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC11130363/)
+
 ➢ [3D Convolutional Neural Networks For Diabetic Retinopathy Lesion Segmentation](https://www.mdpi.com/2075-4426/12/9/1454)
+
 ➢ [Multi-scale Feature Fusion For Diabetic Retinopathy Lesion Segmentation](https://pmc.ncbi.nlm.nih.gov/articles/PMC9777401/)
 
