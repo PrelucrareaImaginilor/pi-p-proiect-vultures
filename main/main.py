@@ -8,6 +8,7 @@ from diagnosis import generate_diagnosis
 
 def segment_retinopathy_lesions(image_path):
     image = cv2.imread(image_path)
+
     if image is None:
         raise ValueError("Nu s-a putut citi imaginea.")
     preprocessed = preprocess_retinal_image(image)

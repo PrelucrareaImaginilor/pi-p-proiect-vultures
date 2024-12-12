@@ -1,2 +1,3 @@
-Diagnostic: Diabet retinopatic identificat
-Tratament: Terapie laser, monitorizarea constantă a glucozei, injecții anti-VEGF.
+Diagnostic: Diabet retinopatic identificat - Nivel de risc: RIDICAT
+Procentaj leziuni: 98.17%
+Tratament recomandat: Terapie laser, monitorizare constantă a glucozei, injecții anti-VEGF, evaluare oftalmologică periodică.
