@@ -101,5 +101,3 @@ def segment_retinopathy_lesions(image_path):
     analysis = detector.analyze_lesions(dark_lesions, bright_lesions)
 
     return image, preprocessed, dark_lesions, bright_lesions, analysis
-
-# Rest of the visualization code remains the same...
