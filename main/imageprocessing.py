@@ -12,13 +12,6 @@ class RetinalLesionDetector:
         self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
 
     def preprocess_retinal_image(self, image):
-        """
-        Enhanced preprocessing pipeline for better lesion detection:
-        1. Green channel extraction (best contrast for retinal lesions)
-        2. CLAHE for contrast enhancement
-        3. Noise reduction with bilateral filter
-        4. Background homogenization
-        """
         # Extract green channel (most informative for retinal lesions)
         green_channel = image[:, :, 1]
 
@@ -36,10 +29,6 @@ class RetinalLesionDetector:
         return normalized
 
     def detect_dark_lesions(self, preprocessed_image):
-        """
-        Improved dark lesion detection using adaptive thresholding and morphological operations.
-        Detects microaneurysms and hemorrhages.
-        """
         # Adaptive thresholding
         binary = cv2.adaptiveThreshold(
             preprocessed_image,
@@ -68,10 +57,6 @@ class RetinalLesionDetector:
         return mask
 
     def detect_bright_lesions(self, preprocessed_image):
-        """
-        Enhanced bright lesion detection focusing on exudates.
-        Uses multi-level thresholding and shape analysis.
-        """
         # Otsu's thresholding for initial segmentation
         thresh_val = filters.threshold_otsu(preprocessed_image)
         binary = preprocessed_image > (thresh_val * 1.25)  # Higher threshold for bright lesions
@@ -85,9 +70,6 @@ class RetinalLesionDetector:
         return (cleaned * 255).astype(np.uint8)
 
     def analyze_lesions(self, dark_lesions, bright_lesions):
-        """
-        Analyze detected lesions to extract meaningful features
-        """
         analysis = {
             'dark_lesion_count': len(measure.regionprops(measure.label(dark_lesions))),
             'bright_lesion_count': len(measure.regionprops(measure.label(bright_lesions))),
