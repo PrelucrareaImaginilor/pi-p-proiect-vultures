@@ -1,0 +1,22 @@
+RAPORT ANALIZA RETINIANA
+Data: 2025-01-08 21:22:23
+Cod pacient: ges3
+
+=== REZULTATE ANALIZA ===
+Diagnostic: Retinopatie diabetică ușoară
+Nivel de severitate: UȘOR
+Grad de încredere: 40.0%
+
+=== DETALII ANALIZA ===
+Leziuni întunecate detectate: 16
+Leziuni luminoase detectate: 7
+Densitate leziuni întunecate: 0.310/1000px
+Densitate leziuni luminoase: 0.135/1000px
+
+=== RECOMANDARI TRATAMENT ===
+1. Monitorizare periodică
+2. Optimizarea controlului glicemic
+3. Consultație oftalmologică la 6 luni
+4. Menținerea unui stil de viață sănătos
+
+NOTA: Acest raport este generat automat și ar trebui interpretat de un specialist.

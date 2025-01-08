@@ -1,0 +1,23 @@
+RAPORT ANALIZA RETINIANA
+Data: 2025-01-08 21:22:03
+Cod pacient: bg1
+
+=== REZULTATE ANALIZA ===
+Diagnostic: Retinopatie diabetică moderată
+Nivel de severitate: MODERAT
+Grad de încredere: 70.0%
+
+=== DETALII ANALIZA ===
+Leziuni întunecate detectate: 49
+Leziuni luminoase detectate: 13
+Densitate leziuni întunecate: 0.934/1000px
+Densitate leziuni luminoase: 0.248/1000px
+
+=== RECOMANDARI TRATAMENT ===
+1. Terapie laser focală
+2. Monitorizare glicemică regulată
+3. Consultație oftalmologică la 3-4 luni
+4. Control dietetic strict
+5. Posibile injecții anti-VEGF
+
+NOTA: Acest raport este generat automat și ar trebui interpretat de un specialist.

@@ -1,0 +1,23 @@
+RAPORT ANALIZA RETINIANA
+Data: 2025-01-08 21:22:13
+Cod pacient: ges1
+
+=== REZULTATE ANALIZA ===
+Diagnostic: Retinopatie diabetică severă
+Nivel de severitate: SEVER
+Grad de încredere: 80.0%
+
+=== DETALII ANALIZA ===
+Leziuni întunecate detectate: 59
+Leziuni luminoase detectate: 14
+Densitate leziuni întunecate: 1.142/1000px
+Densitate leziuni luminoase: 0.271/1000px
+
+=== RECOMANDARI TRATAMENT ===
+1. Consultație oftalmologică de urgență
+2. Terapie laser panretinală
+3. Monitorizare glicemică strictă
+4. Posibilă intervenție chirurgicală
+5. Control la 1-2 luni
+
+NOTA: Acest raport este generat automat și ar trebui interpretat de un specialist.
