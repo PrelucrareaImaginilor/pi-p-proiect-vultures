@@ -1,90 +1,123 @@
+# imageprocessing.py
+import os
 import cv2
 import numpy as np
-from scipy import ndimage
+import tkinter as tk
+from diagnosis import generate_diagnosis
+from skimage import filters, morphology, measure
 
 
-def preprocess_retinal_image(image):
-    # Convertim imaginea la spațiul de culoare LAB pentru a separa mai bine texturile
-    lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
-    l, a, b = cv2.split(lab)
+class RetinalLesionDetector:
+    def __init__(self):
+        self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
 
-    # Aplicăm CLAHE pe canalul L pentru a îmbunătăți contrastul local
-    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
-    enhanced_l = clahe.apply(l)
+    def preprocess_retinal_image(self, image):
+        """
+        Enhanced preprocessing pipeline for better lesion detection:
+        1. Green channel extraction (best contrast for retinal lesions)
+        2. CLAHE for contrast enhancement
+        3. Noise reduction with bilateral filter
+        4. Background homogenization
+        """
+        # Extract green channel (most informative for retinal lesions)
+        green_channel = image[:, :, 1]
 
-    # Reducem zgomotul folosind filtre mai sofisticate
-    denoised = cv2.bilateralFilter(enhanced_l, 9, 75, 75)
+        # Apply CLAHE for better contrast
+        enhanced = self.clahe.apply(green_channel)
 
-    # Normalizăm imaginea pentru a obține o distribuție uniformă a intensității
-    normalized = cv2.normalize(denoised, None, 0, 255, cv2.NORM_MINMAX)
+        # Bilateral filtering to reduce noise while preserving edges
+        denoised = cv2.bilateralFilter(enhanced, 9, 75, 75)
 
-    return normalized
+        # Background homogenization
+        background = cv2.medianBlur(denoised, 69)
+        normalized = cv2.subtract(denoised, background)
+        normalized = cv2.normalize(normalized, None, 0, 255, cv2.NORM_MINMAX)
+
+        return normalized
+
+    def detect_dark_lesions(self, preprocessed_image):
+        """
+        Improved dark lesion detection using adaptive thresholding and morphological operations.
+        Detects microaneurysms and hemorrhages.
+        """
+        # Adaptive thresholding
+        binary = cv2.adaptiveThreshold(
+            preprocessed_image,
+            255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY_INV,
+            11,
+            2
+        )
+
+        # Noise removal
+        kernel = np.ones((3, 3), np.uint8)
+        cleaned = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
+
+        # Remove small objects and fill holes
+        labels = measure.label(cleaned)
+        properties = measure.regionprops(labels)
+
+        # Filter based on size and shape
+        mask = np.zeros_like(cleaned)
+        for prop in properties:
+            if prop.area >= 20 and prop.area <= 300 and prop.eccentricity < 0.95:
+                coords = prop.coords
+                mask[coords[:, 0], coords[:, 1]] = 255
+
+        return mask
+
+    def detect_bright_lesions(self, preprocessed_image):
+        """
+        Enhanced bright lesion detection focusing on exudates.
+        Uses multi-level thresholding and shape analysis.
+        """
+        # Otsu's thresholding for initial segmentation
+        thresh_val = filters.threshold_otsu(preprocessed_image)
+        binary = preprocessed_image > (thresh_val * 1.25)  # Higher threshold for bright lesions
+
+        # Morphological operations
+        kernel = morphology.disk(2)
+        cleaned = morphology.remove_small_objects(binary, min_size=50)
+        cleaned = morphology.binary_closing(cleaned, kernel)
+
+        # Convert to uint8
+        return (cleaned * 255).astype(np.uint8)
+
+    def analyze_lesions(self, dark_lesions, bright_lesions):
+        """
+        Analyze detected lesions to extract meaningful features
+        """
+        analysis = {
+            'dark_lesion_count': len(measure.regionprops(measure.label(dark_lesions))),
+            'bright_lesion_count': len(measure.regionprops(measure.label(bright_lesions))),
+            'dark_lesion_area': np.sum(dark_lesions > 0),
+            'bright_lesion_area': np.sum(bright_lesions > 0),
+            'dark_lesion_density': None,
+            'bright_lesion_density': None
+        }
+
+        # Calculate lesion density (lesions per unit area)
+        total_area = dark_lesions.size
+        analysis['dark_lesion_density'] = analysis['dark_lesion_count'] / total_area * 1000
+        analysis['bright_lesion_density'] = analysis['bright_lesion_count'] / total_area * 1000
+
+        return analysis
 
 
-def detect_dark_lesions(preprocessed_image):
-    # Aplicăm mai multe tehnici de segmentare
-    # 1. Prag adaptiv cu ajustări
-    thresh1 = cv2.adaptiveThreshold(
-        preprocessed_image, 255,
-        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-        cv2.THRESH_BINARY_INV, 15, 3
-    )
+def segment_retinopathy_lesions(image_path):
+    image = cv2.imread(image_path)
+    if image is None:
+        raise ValueError("Nu s-a putut citi imaginea.")
 
-    # 2. Utilizăm metoda Otsu pentru prag
-    _, thresh2 = cv2.threshold(
-        preprocessed_image, 0, 255,
-        cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
-    )
+    detector = RetinalLesionDetector()
+    preprocessed = detector.preprocess_retinal_image(image)
+    dark_lesions = detector.detect_dark_lesions(preprocessed)
+    bright_lesions = detector.detect_bright_lesions(preprocessed)
 
-    # Combinăm rezultatele celor două metode
-    combined_thresh = cv2.bitwise_and(thresh1, thresh2)
+    # Analyze detected lesions
+    analysis = detector.analyze_lesions(dark_lesions, bright_lesions)
 
-    # Operații morfologice pentru curățare
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
-    opened = cv2.morphologyEx(combined_thresh, cv2.MORPH_OPEN, kernel)
-    closed = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, kernel)
+    return image, preprocessed, dark_lesions, bright_lesions, analysis
 
-    # Etichetare componente și filtrare
-    num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(closed, connectivity=8)
-    filtered_mask = np.zeros_like(closed)
-
-    # Parametri mai flexibili pentru filtrare
-    min_area, max_area = 10, 400
-    for label in range(1, num_labels):
-        area = stats[label, cv2.CC_STAT_AREA]
-        eccentricity = stats[label, cv2.CC_STAT_WIDTH] / stats[label, cv2.CC_STAT_HEIGHT]
-
-        if (min_area <= area <= max_area) and (0.5 <= eccentricity <= 2):
-            filtered_mask[labels == label] = 255
-
-    return filtered_mask
-
-
-def detect_bright_lesions(preprocessed_image):
-    # Utilizăm tehnici mai avansate de segmentare
-    # 1. Prag adaptiv pentru zone luminoase
-    _, thresh = cv2.threshold(
-        preprocessed_image, 220, 255,
-        cv2.THRESH_BINARY
-    )
-
-    # Operații morfologice
-    kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3))
-    opened = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-    dilated = cv2.dilate(opened, kernel, iterations=1)
-
-    # Etichetare și filtrare componente
-    num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(dilated, connectivity=8)
-    filtered_mask = np.zeros_like(dilated)
-
-    # Parametri de filtrare mai detaliat
-    min_area, max_area = 20, 600
-    for label in range(1, num_labels):
-        area = stats[label, cv2.CC_STAT_AREA]
-        mean_intensity = np.mean(preprocessed_image[labels == label])
-        compactness = (stats[label, cv2.CC_STAT_WIDTH] * stats[label, cv2.CC_STAT_HEIGHT]) / area
-
-        if (min_area <= area <= max_area) and (mean_intensity > 220) and (compactness < 4):
-            filtered_mask[labels == label] = 255
-
-    return filtered_mask
+# Rest of the visualization code remains the same...

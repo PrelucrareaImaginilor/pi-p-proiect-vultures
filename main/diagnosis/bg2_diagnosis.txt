@@ -1,3 +1,23 @@
-Diagnostic: Diabet retinopatic identificat - Nivel de risc: RIDICAT
-Procentaj leziuni: 97.93%
-Tratament recomandat: Terapie laser, monitorizare constantă a glucozei, injecții anti-VEGF, evaluare oftalmologică periodică.
+RAPORT ANALIZA RETINIANA
+Data: 2025-01-08 21:22:08
+Cod pacient: bg2
+
+=== REZULTATE ANALIZA ===
+Diagnostic: Retinopatie diabetică severă
+Nivel de severitate: SEVER
+Grad de încredere: 80.0%
+
+=== DETALII ANALIZA ===
+Leziuni întunecate detectate: 60
+Leziuni luminoase detectate: 12
+Densitate leziuni întunecate: 1.133/1000px
+Densitate leziuni luminoase: 0.227/1000px
+
+=== RECOMANDARI TRATAMENT ===
+1. Consultație oftalmologică de urgență
+2. Terapie laser panretinală
+3. Monitorizare glicemică strictă
+4. Posibilă intervenție chirurgicală
+5. Control la 1-2 luni
+
+NOTA: Acest raport este generat automat și ar trebui interpretat de un specialist.
