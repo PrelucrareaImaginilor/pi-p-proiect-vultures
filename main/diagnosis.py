@@ -4,10 +4,6 @@ from datetime import datetime
 
 
 def analyze_severity(analysis):
-    """
-    Determine DR severity based on lesion analysis.
-    Returns severity level and confidence score.
-    """
     # Initialize scoring system
     severity_score = 0
     max_score = 10
@@ -49,9 +45,6 @@ def analyze_severity(analysis):
 
 
 def generate_diagnosis(lesion_data, filename, analysis):
-    """
-    Generate comprehensive diagnosis based on lesion analysis
-    """
     severity_level, confidence = analyze_severity(analysis)
 
     # Define recommendations based on severity
